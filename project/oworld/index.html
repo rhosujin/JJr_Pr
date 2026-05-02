@@ -34,7 +34,7 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/common.js"></script>
-
+    
     <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
     <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
     <!--[if lt IE 9]>
@@ -112,13 +112,50 @@
 
     <div class="mobile-menu">
      <ul class="mobile-menu-list">
-        <li><a href="#">기관소개</a></li>
-        <li><a href="#">이용정보</a></li>
-        <li><a href="#">축제·이벤트</a></li>
-        <li><a href="#">즐길거리</a></li>
-        <li><a href="#">고객센터</a></li>
+  <li class="has-sub">
+      <a href="#">기관소개</a>
+      <ul class="submenu">
+        <li><a href="#">오월드 소개</a></li>
+        <li><a href="#">연혁</a></li>
+        <li><a href="#">조직도</a></li>
       </ul>
-    </div>
+    </li>
+
+    <li class="has-sub">
+      <a href="#">이용정보</a>
+      <ul class="submenu">
+        <li><a href="#">이용요금</a></li>
+        <li><a href="#">운영시간</a></li>
+        <li><a href="#">시설안내</a></li>
+      </ul>
+    </li>
+
+    <li class="has-sub">
+      <a href="#">축제·이벤트</a>
+      <ul class="submenu">
+        <li><a href="#">진행중 이벤트</a></li>
+        <li><a href="#">종료된 이벤트</a></li>
+      </ul>
+    </li>
+
+    <li class="has-sub">
+      <a href="#">즐길거리</a>
+      <ul class="submenu">
+        <li><a href="#">어트랙션</a></li>
+        <li><a href="#">동물원</a></li>
+      </ul>
+    </li>
+
+    <li class="has-sub">
+      <a href="#">고객센터</a>
+      <ul class="submenu">
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
     <!-- mobile-menu -->
 
   </header>
@@ -137,53 +174,90 @@
 
 
 
-
 <section class="event-section">
   <div class="inner">
-    <h2>EVENT</h2>
-    <p class="sub">오월드에서 진행중인 이벤트를 소개합니다.</p>
 
-    <div class="card-wrap">
+    <div class="event-header">
+      <div>
+        <h2>EVENT</h2>
+        <p class="sub">오월드에서 진행중인 이벤트를 소개합니다.</p>
+      </div>  
+      <a href="#" class="more-btn">이벤트 더보기</a>
+    </div>
+
+    <!-- ✅ PC용 -->
+    <div class="card-wrap pc">
       
       <div class="card">
-        <img src="./images/main/event_01.jpeg" alt="새 이미지">
+        <img src="./images/main/event_01.jpeg">
         <div class="card-text">
           <h3>버드랜드 퍼포먼스</h3>
           <p>생태설명회와 다양한 체험들을 만나...</p>
         </div>
-        <div class="btn">→</div>
       </div>
 
       <div class="card">
-        <img src="./images/main/event_02.png" alt="">
+        <img src="./images/main/event_02.png">
         <div class="card-text">
           <h3>아프리카 사파리 미운영</h3>
           <p>시설개선공사로 잠시 운영이 중단되...</p>
         </div>
-        <div class="btn">→</div>
       </div>
 
       <div class="card">
-        <img src="./images/main/event_03.jpg" alt="">
+        <img src="./images/main/event_03.jpg">
         <div class="card-text">
           <h3>크리스마스 공연시간표</h3>
           <p>크리스마스 및 연말 공연 시간을 알아...</p>
         </div>
-        <div class="btn">→</div>
       </div>
 
       <div class="card">
-        <img src="./images/main/event_04.jpeg" alt="">
+        <img src="./images/main/event_04.jpeg">
         <div class="card-text">
           <h3>펭귄 생태설명회</h3>
           <p>펭귄 생태설명회에 참여하면서 귀여운...</p>
         </div>
-        <div class="btn">→</div>
       </div>
 
     </div>
 
-    <button class="more-btn">이벤트 더보기 ></button>
+    <!-- ✅ 모바일용 (기존 유지) -->
+    <div class="wallet mobile">
+      <div class="wallet-card">
+        <img src="./images/main/event_01.jpeg">
+        <div class="card-text">
+          <h3>버드랜드 퍼포먼스</h3>
+          <p>생태설명회와 다양한 체험들을 만나...</p>
+        </div>
+      </div>
+
+      <div class="wallet-card">
+        <img src="./images/main/event_02.png">
+        <div class="card-text">
+          <h3>아프리카 사파리 미운영</h3>
+          <p>시설개선공사로 잠시 운영이 중단되...</p>
+        </div>
+      </div>
+
+      <div class="wallet-card">
+        <img src="./images/main/event_03.jpg">
+        <div class="card-text">
+          <h3>크리스마스 공연시간표</h3>
+          <p>크리스마스 및 연말 공연 시간을 알아...</p>
+        </div>
+      </div>
+
+      <div class="wallet-card">
+        <img src="./images/main/event_04.jpeg">
+        <div class="card-text">
+          <h3>펭귄 생태설명회</h3>
+          <p>펭귄 생태설명회에 참여하면서 귀여운...</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -366,6 +440,10 @@
 
 
 <section class="story-section">
+
+    <!-- 모바일 전용 제목  -->
+  <h2 class="mobile-title">오월드 스토리</h2>
+  
   <div class="story-inner">
 
     <div class="story-left">
@@ -395,6 +473,10 @@
     </div>
 
   </div>
+
+
+
+  
 </section>
 <!-- 아이콘 -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
