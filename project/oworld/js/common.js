@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
   /* =========================
      1. 헤더 스크롤
   ========================= */
@@ -15,64 +17,51 @@ $(document).ready(function () {
   /* =========================
      2. 모바일 메뉴
   ========================= */
-const hamburger = document.querySelector(".hamburger");
-const mobileMenu = document.querySelector(".mobile-menu");
-const dim = document.querySelector(".dim");
+  const hamburger = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const dim = document.querySelector(".dim");
 
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener("click", () => {
+  // 메뉴 열기/닫기
+ hamburger?.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     mobileMenu.classList.toggle("active");
-
-    if (dim) dim.classList.toggle("active");
+    dim?.classList.toggle("active");
   });
-}
 
-
-if (dim) {
-  dim.addEventListener("click", () => {
+  dim?.addEventListener("click", () => {
+    hamburger.classList.remove("active");
     mobileMenu.classList.remove("active");
     dim.classList.remove("active");
-    hamburger.classList.remove("active");
   });
-}
+
 
   /* =========================
-     3. 모바일 서브메뉴
+     3. 모바일 서브메뉴 (아코디언)
   ========================= */
-const titles = document.querySelectorAll(".mobile-title");
+  document.querySelectorAll(".mobile-menu .has-sub > a")
+    .forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        item.parentElement.classList.toggle("active");
+      });
+    });
 
-titles.forEach(title => {
-  title.addEventListener("click", () => {
-    const sub = title.nextElementSibling;
 
-    if (sub) {
-      sub.style.display =
-        sub.style.display === "block" ? "none" : "block";
+  /* =========================
+     4. 반응형 리셋 (PC 복귀)
+  ========================= */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1100) {
+      hamburger?.classList.remove("active");
+      mobileMenu?.classList.remove("active");
+      dim?.classList.remove("active");
+
+      // 서브메뉴 초기화
+      document.querySelectorAll(".mobile-menu li.active")
+        .forEach(li => li.classList.remove("active"));
     }
   });
-});
 
-
-
-
-
-// pc로 돌아오면 모바일 메뉴 초기화
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 768) {
-    mobileMenu.classList.remove("active");
-    hamburger.classList.remove("active");
-
-    if (dim) dim.classList.remove("active");
-  }
-});
-
-
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  mobileMenu.classList.toggle("active");  mobileMenu.classList.toggle("active");
-});
 
 
 // 마우스따라 움직이기
@@ -118,8 +107,64 @@ function animate() {
 animate();
 
 
+window.addEventListener("scroll", () => {
+  const hero = document.querySelector(".main-visual");
+  const text = document.querySelector(".visual-text");
+
+  let scrollY = window.scrollY;
+
+  if (hero) {
+    hero.style.backgroundPosition = `center ${50 + scrollY * 0.05}%`;
+  }
+
+  if (text) {
+    text.style.transform = `translateY(${scrollY * 0.2}px)`;
+    text.style.opacity = Math.max(1 - scrollY / 250, 0);
+  }
+});
 
 
+
+
+
+
+/* =========================
+   Wallet 스택 애니메이션
+========================= */
+const wallet = document.querySelector(".wallet");
+
+if (wallet) {
+
+  // 1. 스크롤 등장
+  const walletObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          wallet.classList.add("show");
+          observer.unobserve(wallet);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  walletObserver.observe(wallet);
+
+  // 2. 카드 클릭 → 펼치기 (추천 방식)
+wallet.querySelectorAll(".wallet-card").forEach(card => {
+
+  card.addEventListener("click", () => {
+
+    if (!wallet.classList.contains("active")) {
+      wallet.classList.add("active"); // 1번 클릭 → 펼치기
+    } else {
+      window.location.href = "#"; // 2번 클릭 → 이동
+    }
+
+  });
+
+});
+}
 
 
   /* =========================
@@ -139,7 +184,6 @@ animate();
 
 
 
-  if (!cards.length) return;
 
   const data = [
     { img: "./images/main/sns_01.png",
