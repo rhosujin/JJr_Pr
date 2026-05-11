@@ -1,0 +1,550 @@
+@charset "utf-8";
+
+
+.container {
+  width: 1200px;
+  margin:0 auto;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  z-index: 10;
+ transition: background 0.3s ease;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.7); /* 원하는 색 */
+  backdrop-filter: blur(10px); /* 옵션: 유리 효과 */
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.header ul li a{
+  color:#fff
+}
+
+/* HERO */
+.hero {
+  height: 500px;
+  background: url("../images/main.png") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 30px;
+  color: #1a4ed8;
+}
+
+/* NOTICE */
+.notice {
+  padding: 80px 0;
+  text-align: center;
+}
+
+
+.notice h2{
+  font-size: 30px;padding-bottom: 30px;
+}
+
+.notice h3{
+  font-size: 16px;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  height: 200px;
+  background: #eee;
+  padding: 30px;
+  text-align: left;
+  position: relative;
+
+  transition: 0.3s; /* ⭐ 부드럽게 */
+  cursor: pointer;
+}
+
+.card:hover {
+  background: #1a4ed8;
+  color: #fff;
+}
+
+
+.card:hover .plus-btn {
+  color: #fff;
+}
+
+
+/* 날짜 (왼쪽 아래) */
+.card span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 12px;
+}
+
+/* + 버튼 */
+.card .plus-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+
+
+
+
+/* COMPANY */
+.company {
+  position: relative;
+}
+
+
+
+/* 🔵 파란 영역 (전체 width) */
+.company-top {
+  width: 100%;
+  background: linear-gradient(135deg, #0a2a6b, #1e4db7);
+  padding: 80px 0 140px;
+  color: #fff;
+}
+
+
+
+/* ⚪ 흰 박스 */
+.company-content {
+  width: 1200px;
+  margin: -100px auto 0; /* ⭐ 겹치기 */
+  background: #fff;
+  padding: 40px; /* ⭐ 요청한 padding */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+
+/* 텍스트 */
+.company-top p {
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.company-top h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+
+
+/* ⚪ 카드 영역 */
+.company-bottom {
+  background: #f5f5f5;
+  padding: 0 0 80px;
+  margin-top: -100px; /* ⭐ 겹치기 핵심 */
+}
+
+/* 카드 리스트 */
+.company-list {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  z-index: 1; /* ⭐ 이거 중요 */
+}
+
+/* 카드 */
+.company-item {
+  background: #fff;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.company-item img {
+  width: 100%;
+  display: block;
+}
+
+/* hover */
+.company-item:hover {
+  transform: translateY(-10px);
+}
+
+/* 텍스트 */
+/* 텍스트 */
+.company-item p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.company-item span {
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+
+/* INQUIRY */
+/* 전체 */
+.inquiry {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(135deg, #1a4ed8, #0f172a);
+  overflow: hidden;
+}
+
+/* 빛 번짐 효과 */
+.inquiry::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+  top: -100px;
+  left: -100px;
+  filter: blur(80px);
+}
+
+.inquiry::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59,130,246,0.3), transparent);
+  bottom: -100px;
+  right: -100px;
+  filter: blur(100px);
+}
+
+
+.inquiry-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.form, .cs {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.form {
+  animation-delay: 0.1s;
+}
+
+.cs {
+  animation-delay: 0.3s;
+}
+
+/* 왼쪽 form */
+.form {
+  flex: 1;
+  padding: 50px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.14); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+
+  transition: 0.4s;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+
+/* 상단 하이라이트 */
+.form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+}
+
+/* 내부 빛 반사 */
+.form::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.15),
+    transparent 40%
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* 살짝 떠오르는 느낌 */
+.form:hover {
+  transform: translateY(-5px);
+}
+
+
+/* 2칸 */
+.form .row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 25px;
+}
+
+/* input */
+.form input {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  background: none;
+  color: #fff;
+  transition: 0.3s;
+  position: relative;
+}
+
+
+/* 라벨 */
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* textarea */
+.form textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+
+  min-height: 140px;
+  transition: 0.3s;
+}
+
+.form textarea:focus {
+  border: 1px solid #fff;
+  background: rgba(255,255,255,0.1);
+}
+/* placeholder */
+.form input::placeholder,
+.form textarea::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+/* 포커스 효과 */
+.form input:focus {
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+}
+
+.form input:focus::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  animation: lineGrow 0.3s ease;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.form textarea:focus {
+  border: 1px solid #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+}
+
+/* 타이틀 */
+.inquiry h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color:#f0f0f0;
+}
+
+.inquiry h3 {
+  font-size: 14px;
+color: rgba(255,255,255,0.6);
+letter-spacing: 1px;
+}
+
+.inquiry p {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: rgba(255,255,255,0.8);
+}
+
+
+
+/* 버튼 */
+.form button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+
+  background: linear-gradient(135deg, #fff, #cbd5f5);
+  color: #1a4ed8;
+
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+/* hover 효과 */
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+
+
+/* 버튼 빛 흐르는 효과 */
+.form button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.form button:hover::after {
+  left: 100%;
+}
+
+/* 오른쪽 cs */
+.cs {
+  flex: 1;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.cs:hover{
+  transform: translateY(-3px);
+}
+
+/* cs 영역 */
+.cs h2 {
+  margin-bottom: 20px;
+    color:#f0f0f0;
+
+}
+
+.cs p:first-of-type {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.cs_time p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.kakao-btn {
+  display: inline-block;
+  padding: 14px;
+  background: #FEE500;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.kakao-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+@media (max-width: 768px) {
+  .inquiry-wrap {
+    flex-direction: column;
+  }
+
+  .form .row {
+    flex-direction: column;
+  }
+}
+
+
+/* FOOTER */
+footer {
+  background: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+}
